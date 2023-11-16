@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { closeMenu } from "../Utils/appSlice";
 import { YOUTUBE_API_VIDEOS, YOUTUBE_VIDEO_WATCH_API } from "../Utils/constants";
+import CommentContainer from "./CommentContainer";
 
 const WatchPage = () => {
     const [searchParams] = useSearchParams();
@@ -66,7 +67,7 @@ const WatchPage = () => {
                                     </span>
                                 </div>
                             </div>
-                            <button className="ml-5 mb-2 border rounded-full p-2 bg-black text-white hover:bg-gray-700" >Subscribe</button>
+                            <button className="h-10 ml-5  border rounded-full p-2 bg-black text-white hover:bg-gray-700" > <span>Subscribe</span></button>
 
                             <div className="ml-28 w-96 flex justify-between" >
                                 <button className=" flex">
@@ -106,6 +107,8 @@ const WatchPage = () => {
                     </div>
                 </div>
             </div>
+
+            <CommentContainer />
         </div>
     )
 }
