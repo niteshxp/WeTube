@@ -5,6 +5,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import MainContainer from './Components/MainContainer';
 import WatchPage from './Components/WatchPage';
 import Error from './Components/Error';
+import SearchResults from './Components/SearchResults'
 
 function App() {
 
@@ -29,10 +30,10 @@ export const appRouter = createBrowserRouter([{
     path: 'watch',
     element: <WatchPage />
   },
-    // {
-    //   path: 'results',
-    //   element: <SearchResultContainer />
-    // }
+  {
+    path: 'results',
+    element: <SearchResults />
+  }
   ]
 }])
 

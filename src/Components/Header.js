@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { YOUTUBE_SEARCH_API, imgMenu, imgYT } from '../Utils/constants'
 import { cacheResults } from '../Utils/searchSlice'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
     //debouncing
@@ -11,6 +12,7 @@ const Header = () => {
     const [suggestions, setSuggestions] = useState([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const searchCache = useSelector((store) => store.search);
 
@@ -44,9 +46,15 @@ const Header = () => {
         dispatch(toggleMenu())
     };
 
+    const handleSuggestion = (e) => {
+        setSearchQuery(e.target.innerText);
+        setShowSuggestions(false);
+        navigate('/results?search_query=' + encodeURI(e.target.innerText));
+    }
+
     return (
 
-        <div className='grid grid-flow-col p-2 m-1 shadow-lg'>
+        <div className='fixed w-[98%] ml-2 grid grid-flow-col p-2 bg-white shadow-lg'>
 
             <div className='flex col-span-1'>
 
@@ -65,17 +73,20 @@ const Header = () => {
                 </Link>
             </div>
 
-            <div className='col-span-10 px-10'>
+            <div className='col-span-10 px-10 '>
                 <div>
                     <input
                         className='w-3/4 border border-gray-400 p-2 rounded-l-full'
                         type='text'
                         value={searchQuery}
+                        placeholder='search'
                         onChange={(e) => setSearchQuery(e.target.value)}
                         onFocus={() => setShowSuggestions(true)}
                         onBlur={() => setShowSuggestions(false)}
                     />
-                    <button className='border border-gray-400 p-2 rounded-r-full bg-gray-100'> 🔍</button>
+                    <button className='border border-gray-400 p-2 rounded-r-full bg-gray-100'
+                        onClick={() => navigate('/results?search_query=' + encodeURI(searchQuery))}
+                    > 🔍</button>
                 </div>
 
                 {
@@ -85,8 +96,8 @@ const Header = () => {
                             {
                                 suggestions?.map(
                                     (sugg) =>
-                                        <li key={sugg} className='py-2 px-3 shadow-sm hover:bg-gray-100'>
-                                            <spna>{sugg}</spna>
+                                        <li key={sugg} onMouseDown={(e) => handleSuggestion(e)} className='py-2 px-3 shadow-sm hover:bg-gray-100 cursor-pointer'>
+                                            <span>{sugg}</span>
                                         </li>
                                 )
                             }
