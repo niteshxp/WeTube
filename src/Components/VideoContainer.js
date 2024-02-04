@@ -27,7 +27,7 @@ const VideoContainer = () => {
   if (!videos.length) return <Shimmer />;
 
   return (
-    <div className={`w-screen md:flex lg:flex md:flex-wrap md:justify-evenly ${!isMenuOpen ? "" : "md:w-4/5 md:mx-[240px]"}`}>
+    <div className={`ml-16 w-fit md:flex lg:flex md:flex-wrap md:justify-evenly ${!isMenuOpen ? "" : "md:w-4/5 md:mx-[240px]"}`}>
       {videos.map(video =>
         <Link to={"/watch?v=" + video.id} >
           <VideoCard key={video.id} info={video} />
