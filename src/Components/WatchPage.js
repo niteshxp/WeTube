@@ -30,7 +30,7 @@ const WatchPage = () => {
 
 
     return (
-        <div className="min-w-full flex pr-10">
+        <div className=" min-w-full flex pr-10 mt-20">
             <div>
 
                 <div className="px-5">

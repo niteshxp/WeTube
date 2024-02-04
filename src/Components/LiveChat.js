@@ -48,7 +48,7 @@ const LiveChat = () => {
         <>
             {
                 !isShowChat ?
-                    (<div className=' w-[364px] h-[20px] mt-16 mx-3 text-center'><button onClick={() => setIsShowChat(true)} className='rounded-full hover:bg-gray-200 border py-1 w-full text-[14px]'>Show Chat</button></div>)
+                    (<div className=' w-[364px] h-[20px] mx-3 text-center'><button onClick={() => setIsShowChat(true)} className='rounded-full hover:bg-gray-200 border py-1 w-full text-[14px]'>Show Chat</button></div>)
                     :
                     (
                         <div className='w-[500px] h-[700px] border rounded-lg '>

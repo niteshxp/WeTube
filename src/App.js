@@ -10,10 +10,9 @@ import SearchResults from './Components/SearchResults'
 function App() {
 
   return (
-    <div >
+    <div className=''>
       <Header />
       <Body />
-
     </div>
   );
 }

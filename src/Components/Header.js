@@ -14,6 +14,7 @@ const Header = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const isMenuOpen = useSelector(store => store.app.isMenuOpen)
     const searchCache = useSelector((store) => store.search);
 
     useEffect(() => {
@@ -53,8 +54,7 @@ const Header = () => {
     }
 
     return (
-
-        <div className='fixed w-[98%] ml-2 grid grid-flow-col p-2 bg-white shadow-lg'>
+        <div className='fixed md:w-[75%] lg:w-[98%] ml-2 grid grid-flow-col p-2 rounded-lg bg-white shadow-lg'>
 
             <div className='flex col-span-1'>
 
@@ -66,7 +66,7 @@ const Header = () => {
                 />
                 <Link to="/">
                     <img
-                        className='h-8 mx-2'
+                        className={`${isMenuOpen ? "" : "hidden md:inline-block"} h-8 mx-2`}
                         alt='youtube-logo'
                         src={imgYT}
                     />
