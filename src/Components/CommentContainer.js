@@ -61,7 +61,7 @@ const commentsData = [
 
 const CommentContainer = () => {
     return (
-        <div className='ml-4 mt-2 p-2 text-xl font-semibold w-2/3'>
+        <div className='ml-4 mt-2 p-2 text-xl font-semibold md:w-2/3'>
             <h1 className='mb-4'>Comments : </h1>
             <CommentsList comments={commentsData} />
         </div>

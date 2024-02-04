@@ -30,29 +30,38 @@ const WatchPage = () => {
 
 
     return (
-        <div className=" min-w-full flex pr-10 mt-20">
+        <div className="md:min-w-full md:flex md:pr-10 md:mt-20">
             <div>
+                {window.screen.availWidth <= 430 ?
+                    (<div className="px-5 mt-16 border border-red-600 w-screen">
+                        <iframe width="400"
+                            height="300"
+                            src={"https://www.youtube.com/embed/" + videoId}
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen>
+                        </iframe>
+                    </div>)
+                    : (<div className="md:px-5">
+                        <iframe width="800"
+                            height="400"
+                            src={"https://www.youtube.com/embed/" + videoId}
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen>
+                        </iframe>
+                    </div>)
+                }
 
-                <div className="px-5">
-                    <iframe width="800"
-                        height="400"
-                        src={"https://www.youtube.com/embed/" + videoId}
-                        title="YouTube video player"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen>
-                    </iframe>
-                </div>
 
-                <div>
-                    <div className="w-[800px]">
-
+                <div className="">
+                    <div className="w-screen md:w-[800px]">
                         <div className="font-semibold p-2 ml-4 text-xl">
                             {video?.snippet?.title}
                         </div>
 
                         <div>
-
-                            <div className="ml-4 flex">
+                            <div className=" md:ml-4 flex flex-wrap border border-red-600">
                                 <img
                                     className='rounded-full w-10 h-10' alt='thumbnail'
                                     src={video?.snippet?.thumbnails?.default?.url}
@@ -111,11 +120,11 @@ const WatchPage = () => {
                 </div>
 
                 <CommentContainer />
-            </div>
+            </div >
             <div>
                 <LiveChat />
             </div>
-        </div>
+        </div >
     )
 }
 
