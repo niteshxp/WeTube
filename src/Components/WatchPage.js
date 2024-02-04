@@ -33,7 +33,7 @@ const WatchPage = () => {
         <div className="md:min-w-full md:flex md:pr-10 md:mt-20">
             <div>
                 {window.screen.availWidth <= 430 ?
-                    (<div className="px-5 mt-16 border border-red-600 w-screen">
+                    (<div className="px-5 mt-16 w-screen">
                         <iframe width="400"
                             height="300"
                             src={"https://www.youtube.com/embed/" + videoId}
@@ -61,7 +61,7 @@ const WatchPage = () => {
                         </div>
 
                         <div>
-                            <div className=" md:ml-4 flex flex-wrap border border-red-600">
+                            <div className=" md:ml-4 flex flex-wrap">
                                 <img
                                     className='rounded-full w-10 h-10' alt='thumbnail'
                                     src={video?.snippet?.thumbnails?.default?.url}
